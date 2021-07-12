@@ -1,0 +1,91 @@
+
+.desc_pro_con{
+    margin: 0;
+    padding: auto;;
+}
+.desc_pro{
+    padding: 2% 10%;
+}
+.bike-cont{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
+}
+.bike{
+    height: 100%;
+    width: 100%;
+}
+.bikemin{
+    height: auto;
+    width: 100%;
+}
+.time-left-box{
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
+}
+.time-left-box p span{
+    width: 25%;
+    text-align: center;
+    
+}
+/*login and sign up style*/
+
+.login-reg-col{text-align: center;}
+.login-reg-col .container img{
+    height: auto;
+    width: 50%;
+}
+.btn-register , .btn-login{
+    background-color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    color: #4f545c;
+    border: none;
+}
+.btn-register:hover , .btn-login:hover{
+    cursor: pointer;
+    color: #13294a;
+    
+    
+}
+.btn-register:focus , .btn-login:focus{
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+.log-email-input, .log-pass-input{
+    border-radius: 20px;
+    border-color: lightgray;
+}
+.log-email-input::placeholder, .log-pass-input::placeholder{
+    color:#d9dbde ;
+}
+.input-group-text{
+    border-radius: 20px;
+    color:#79e2f2;
+    background-color: white;
+}
+.fa-check{
+    color:#7ff279;
+}
+.fa-close{
+    color: #c23934;
+}
+.input-group-text:hover{
+    cursor: pointer;
+}
+.log-email-input:focus, .log-pass-input:focus{
+    outline: none;
+    box-shadow: none;
+}
+.login-btn{
+    border-radius: 20px;
+    padding: 7px 40px;
+    background-color: #13294a;
+    border: none;
+}
+.forgotPass:hover{
+    cursor: pointer;
+}
+.register-container{
+  display: none;
+}

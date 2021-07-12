@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Subastas</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="subastas.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="bootstrap.js"></script>
+  
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>TITULO DE LO QUE SEA</h1>
+  <p>Un subtitulo bien melo caramelo</p> 
+</div>
+  
+<div class="container-fluid desc_pro_cont">
+  <div class="row desc_pro">
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="col-sm-8" >
+                <div class="container-fluid bike-cont">    
+                    <img class="bike" src="cicla.jpg"> 
+                </div>       
+            </div>
+            <div class="col-sm-2" >           
+                    <img class="bikemin" src="cicla.jpg">
+                    <img class="bikemin" src="cicla.jpg"> 
+                    <img class="bikemin" src="cicla.jpg">       
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+      <h3>Precio actual <span id="current-price"></span></h3>
+      <hr>
+      <p>Estado del artículo : Nuevo</p>
+      <p><span>Descripción:</span> Ut enim ad minim veniam, quis nostrud exercit 
+        Ut enim ad minim veniam, quis nostrud exercit Ut enim ad minim 
+        veniam, quis nostrud exercit Ut enim ad minim veniam, quis nostrud 
+        exercit Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+        laboris...</p>
+      <h5>Finaliza en: </h5>
+      <div class="container-fluid time-left-box">
+        <div class="row">
+          <div class="col-sm-3" style="border-right: solid 1px gray;">
+            <span id="daysLeft"></span>
+            <p>Dias</p>
+          </div>
+          <div class="col-sm-3" style="border-right: solid 1px gray;">
+            <span id="hoursLeft"></span>
+            <p>Horas</p>
+          </div>
+          <div class="col-sm-3" style="border-right: solid 1px gray;">
+            <span id="minutesLeft"></span>
+            <p>Minutos</p>
+          </div>
+          <div class="col-sm-3">
+            <span id="secondsLeft"></span></row>
+            <p>Segundos</p>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="input-group mb-3">
+        <input type="number" class="form-control" placeholder="Your Email" id="offer">
+        <div class="input-group-append">
+          <span class="input-group-text">
+              <i class="fa fa-gavel" aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>
+      <button id="btnadd">
+        ofertar
+      </button>
+      <h5>Categorías:</h5>
+      <p>Categoria 1,Categoria 1,Categoria 1,Categoria 1</p>
+    </div>
+  </div>
+</div>
+<script>
+  var date1 = new Date("7/11/2010");
+  window.onload = function() { setInterval( timeNow, 100); }
+  function timeNow(){
+    var today = new Date();
+    var days=7;
+    var hours=today.getHours();
+    var minutes=today.getMinutes();
+    var seconds=today.getSeconds();
+    document.getElementById("daysLeft").innerHTML=days;
+    document.getElementById("hoursLeft").innerHTML=hours;
+    document.getElementById("minutesLeft").innerHTML=minutes;
+    document.getElementById("secondsLeft").innerHTML=seconds;
+    }
+    //var currentPrice=document.getElementById("current-price").textContent;
+    //document.getElementById("offer").value=currentPrice;
+    $("#btnadd").click(function(e){
+     // alert("todo bn ");
+      //var agregar=$("#offer").val();
+      var cOffer=$("#offer").val();
+      var cPrice=$("#current-price").html();
+      //var actual3 = parseInt(actual2);
+        //alert (cPrice*2);
+        if(cOffer<cPrice){
+          alert("tas bien pendejo");
+        }
+        else{
+          $.ajax({
+            url: 'agregar.php',
+            type: 'POST',
+            data:{agregar: $("#offer").val()},
+            success: function(response){
+              //console.log(response);
+              alert("Oferta realiza con éxito");
+            },
+            error: function(response){
+              alert("No se pudo realizar");
+            }
+          })
+        }
+      
+    });
+    $(document).ready(function(){
+      function updatePrice(){
+        $.ajax({
+        url: 'currentprice.php',
+        type: 'GET',
+        success: function(response){
+          var valor= JSON.parse(response);
+          $("#current-price").html(valor);
+        }
+      });
+      }
+      
+    setInterval(updatePrice,500);
+    });
+   
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Iniciar sesión</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="subastas.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="bootstrap.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container-fluid login-reg-container">
+        <div class="container">
+            <div class="row login-reg-row">
+                <div class="col-sm-3" >
+                </div>
+                <div class="col-sm-6 login-reg-col">
+                    <div class="container">
+                        <img src="img/logo.png">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-sm-6">
+                                <button type="button" onclick="removeLogin()" class="btn-login" id="btn btn-login">
+                                    Iniciar sesión
+                                </button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="button" onclick="removeLogin()"class="btn-register" id="btn btn-register">
+                                    Registrarse
+                                </button>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <h3>Bienvenido a subastas.com</h3>
+                    <div class="container login-container" id="login-container">
+                        <p>Por favor inicia sesion para ingresar</p>
+                        <form class="login-form" id="loginForm">
+                            <div class="input-group mb-3">
+                                <input type="email" required class="form-control log-email-input" placeholder="Correo" id="emailLogin">
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="password" required class="form-control log-pass-input" placeholder="Contraseña" id="passwordLogin">
+                                <div class="input-group-append">
+                                  <span class="input-group-text" id="btnShow" onclick="showPassword()"><i class="fa fa-eye" aria-hidden="true"></i></span>
+                                </div>
+                            </div>
+                            <button type="submit" onclick="" class="btn btn-primary login-btn">INICIAR SESION</button>
+                        </form>
+                        <br>
+                        <a>Olvidaste tu contraseña?</a>
+                    </div>
+                    <div class="container register-container" id="register-container">
+                        <p>Gracias por registrarte!</p>
+                        <form class="login-form" id="registerForm">
+                            <div class="input-group mb-3">
+                                <input type="email" required class="form-control log-email-input" placeholder="Correo" id="newEmail">
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="password" required class="form-control log-pass-input" placeholder="Contraseña" id="newPassword">
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="password" onkeyup="passCheck()" required class="form-control log-pass-input" placeholder="Confirma tu contraseña" id="newPasswordConfirm">
+                                <div class="input-group-append">
+                                  <span class="input-group-text " id="" ><i class="fa fa-close" id="confirmpass" aria-hidden="true"></i></span>
+                                </div>
+                            </div>
+                            <div style="text-align: left;">
+                                <input type="checkbox" id="checkConfirm" name="vehicle1" value="Bike">
+                                <label for="vehicle1">Acepto las políticas de privacidad</label><br>
+                            </div>
+                            <button  type="submit" onclick="registerUser()" id="registerUser" class="btn btn-primary login-btn">REGISTRARSE</button>
+                        </form>
+                        <br>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <p id="demo">
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js.js">
+    </script>
+</body>
+</html>
